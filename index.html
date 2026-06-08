@@ -334,6 +334,57 @@
     .hero h1    { animation-delay: 0.1s; }
     .hero-desc  { animation-delay: 0.2s; }
 
+    /* ── CHECKLIST ── */
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .checklist-item {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--ink);
+    }
+
+    .checklist-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .check-mark {
+      color: var(--gold);
+      font-size: 13px;
+      padding-top: 1px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-block {
+      max-width: 520px;
+    }
+
+    .contact-block p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .contact-block a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--gold-dim);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+
+    .contact-block a:hover { color: var(--ink); }
+
     @media (max-width: 600px) {
       .platforms { grid-template-columns: 1fr; }
       footer .wrap { flex-direction: column; gap: 16px; text-align: center; }
@@ -360,6 +411,23 @@
         It renders and publishes original educational short-form video content to TikTok via the 
         Content Posting API — daily, without manual intervention.
       </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">Purpose</div>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-num"></div>
+          <div class="step-content">
+            <h3>Internal Publishing Infrastructure</h3>
+            <p>SIGNAL333 Publisher is an internal content publishing tool used by SIGNAL333 Ventures.</p>
+            <p style="margin-top:12px;">The system selects educational scripts, renders short-form video content, and publishes approved content to official SIGNAL333 social media accounts.</p>
+            <p style="margin-top:12px;">The platform is not available to the public. It is used solely to manage and distribute content owned by SIGNAL333 Ventures.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -476,6 +544,75 @@
           <div class="platform-role">Discovery Engine</div>
           <div class="platform-desc">Random selection. Algorithm-driven discovery. Reaches new audiences daily without repetition.</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">Workflow</div>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Script Selection</h3>
+            <p>Educational scripts are selected from an internal content library.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Video Rendering</h3>
+            <p>The selected script is rendered into a branded short-form video.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Creator Authorisation</h3>
+            <p>The official SIGNAL333 TikTok account authorises access via OAuth.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Content Upload</h3>
+            <p>Videos are uploaded using the TikTok Content Posting API.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h3>Publication Logging</h3>
+            <p>Published content is logged locally for tracking and duplicate prevention.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">Compliance</div>
+      <div class="checklist">
+        <div class="checklist-item"><span class="check-mark">✓</span><span>Original content only</span></div>
+        <div class="checklist-item"><span class="check-mark">✓</span><span>No third-party uploads</span></div>
+        <div class="checklist-item"><span class="check-mark">✓</span><span>No user-generated content</span></div>
+        <div class="checklist-item"><span class="check-mark">✓</span><span>No public user accounts</span></div>
+        <div class="checklist-item"><span class="check-mark">✓</span><span>Single-owner publishing tool</span></div>
+        <div class="checklist-item"><span class="check-mark">✓</span><span>Uses TikTok OAuth authentication</span></div>
+        <div class="checklist-item"><span class="check-mark">✓</span><span>Uses TikTok Content Posting API</span></div>
+        <div class="checklist-item"><span class="check-mark">✓</span><span>Content owned and managed by SIGNAL333 Ventures</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">Contact</div>
+      <div class="contact-block">
+        <p>For enquiries regarding SIGNAL333 Publisher, please contact:</p>
+        <a href="mailto:pay1709@sky.com">pay1709@sky.com</a>
       </div>
     </div>
   </section>
