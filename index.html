@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGNAL333 Publisher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:     #D2AA32;
+      --gold-dim: #8A6E1A;
+      --bg:       #0A0A08;
+      --bg2:      #111110;
+      --ink:      #E8E2D4;
+      --muted:    #6B6760;
+      --border:   #222220;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--muted);
+    }
+
+    .status-badge {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 120px 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 7vw, 80px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-desc {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* ── GOLD LINE ── */
+    .gold-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 40px 0;
+      opacity: 0.6;
+    }
+
+    /* ── SECTION ── */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+
+    /* ── PIPELINE ── */
+    .pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pipeline-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 24px;
+      align-items: start;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .pipeline-step:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-num {
+      font-size: 11px;
+      color: var(--gold-dim);
+      letter-spacing: 0.1em;
+      padding-top: 2px;
+    }
+
+    .step-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .step-content p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ── SERIES GRID ── */
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .series-item {
+      background: var(--bg);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+
+    .series-item:hover {
+      background: var(--bg2);
+    }
+
+    .series-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .series-desc {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SPEC TABLE ── */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .spec-table tr {
+      border-top: 1px solid var(--border);
+    }
+
+    .spec-table tr:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spec-table td {
+      padding: 18px 0;
+      font-size: 13px;
+      vertical-align: top;
+    }
+
+    .spec-table td:first-child {
+      color: var(--muted);
+      width: 220px;
+      letter-spacing: 0.05em;
+    }
+
+    .spec-table td:last-child {
+      color: var(--ink);
+    }
+
+    .spec-val-gold {
+      color: var(--gold);
+    }
+
+    /* ── PLATFORM BLOCK ── */
+    .platforms {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    .platform {
+      background: var(--bg);
+      padding: 40px 32px;
+    }
+
+    .platform-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .platform-role {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .platform-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 0;
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-label, .hero h1, .hero-desc { 
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero h1    { animation-delay: 0.1s; }
+    .hero-desc  { animation-delay: 0.2s; }
+
+    @media (max-width: 600px) {
+      .platforms { grid-template-columns: 1fr; }
+      footer .wrap { flex-direction: column; gap: 16px; text-align: center; }
+      header .wrap { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="logo">SIGNAL333 <span>/</span> Publisher</div>
+      <div class="status-badge">Content Automation Tool</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-label">Automated Content Publishing</div>
+      <h1>Publish.<br><em>Consistently.</em><br>Automatically.</h1>
+      <div class="gold-line"></div>
+      <p class="hero-desc">
+        SIGNAL333 Publisher is an automated content publishing system for the SIGNAL333 ecosystem. 
+        It renders and publishes original educational short-form video content to TikTok via the 
+        Content Posting API — daily, without manual intervention.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">How It Works</div>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Script Selection</h3>
+            <p>Randomly selects from a reservoir of original educational scripts across five content series. Duplicate prevention ensures no script repeats within a 30-day window.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Video Rendering</h3>
+            <p>Renders a 1080×1920 MP4 short-form video with series-specific branding, typography, and animated sequences. Each video is unique to its series.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>TikTok Publishing</h3>
+            <p>Authenticates via OAuth 2.0 with PKCE, queries creator info, initialises upload, and publishes directly to the @signal333hq TikTok account via the Content Posting API.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Logging &amp; Scheduling</h3>
+            <p>Logs every published script with timestamp. Runs daily via Windows Task Scheduler. Fully automated — no manual steps after initial setup.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">Content Series</div>
+      <div class="series-grid">
+        <div class="series-item">
+          <div class="series-name">Thinking Dojo</div>
+          <div class="series-desc">Critical thinking for children</div>
+        </div>
+        <div class="series-item">
+          <div class="series-name">OI Series</div>
+          <div class="series-desc">Opportunity Intelligence</div>
+        </div>
+        <div class="series-item">
+          <div class="series-name">Hunter Intelligence</div>
+          <div class="series-desc">Career strategy system</div>
+        </div>
+        <div class="series-item">
+          <div class="series-name">1LINE</div>
+          <div class="series-desc">One insight, daily</div>
+        </div>
+        <div class="series-item">
+          <div class="series-name">RC Loop</div>
+          <div class="series-desc">Career development framework</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">Technical Specification</div>
+      <table class="spec-table">
+        <tr>
+          <td>Platform</td>
+          <td class="spec-val-gold">TikTok — Content Posting API v2</td>
+        </tr>
+        <tr>
+          <td>Authentication</td>
+          <td>OAuth 2.0 with PKCE</td>
+        </tr>
+        <tr>
+          <td>Video Format</td>
+          <td>MP4 — 1080×1920px — H.264</td>
+        </tr>
+        <tr>
+          <td>Publishing Mode</td>
+          <td>Direct Post to @signal333hq</td>
+        </tr>
+        <tr>
+          <td>Scheduling</td>
+          <td>Daily automated run</td>
+        </tr>
+        <tr>
+          <td>Duplicate Prevention</td>
+          <td>30-day rolling history</td>
+        </tr>
+        <tr>
+          <td>Operator</td>
+          <td>SIGNAL333 Ventures — single account, no third-party users</td>
+        </tr>
+        <tr>
+          <td>Content</td>
+          <td>Original educational short-form video — all rights owned by SIGNAL333</td>
+        </tr>
+      </table>
+
+      <div class="platforms">
+        <div class="platform">
+          <div class="platform-name">YouTube</div>
+          <div class="platform-role">Library Engine</div>
+          <div class="platform-desc">Sequential publishing. Builds a permanent, searchable archive of educational content over time.</div>
+        </div>
+        <div class="platform">
+          <div class="platform-name">TikTok</div>
+          <div class="platform-role">Discovery Engine</div>
+          <div class="platform-desc">Random selection. Algorithm-driven discovery. Reaches new audiences daily without repetition.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-brand">© 2026 SIGNAL333 Ventures</div>
+      <div class="footer-links">
+        <a href="https://oi-ecosystem.github.io/signal333-publisher/terms.html">Terms</a>
+        <a href="https://oi-ecosystem.github.io/signal333-publisher/privacy.html">Privacy</a>
+        <a href="https://www.tiktok.com/@signal333hq">@signal333hq</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
