@@ -396,7 +396,7 @@
 
   <header>
     <div class="wrap">
-      <div class="logo">SIGNAL333 <span>/</span> Publisher</div>
+      <div class="logo">SIGNAL333 Publisher</div>
       <div class="status-badge">Content Automation Tool</div>
     </div>
   </header>
@@ -438,62 +438,42 @@
         <div class="pipeline-step">
           <div class="step-num">01</div>
           <div class="step-content">
-            <h3>Script Selection</h3>
-            <p>Randomly selects from a reservoir of original educational scripts across five content series. Duplicate prevention ensures no script repeats within a 30-day window.</p>
+            <h3>Select Approved Content</h3>
+            <p>Approved educational content is selected from an internal content library.</p>
           </div>
         </div>
         <div class="pipeline-step">
           <div class="step-num">02</div>
           <div class="step-content">
-            <h3>Video Rendering</h3>
-            <p>Renders a 1080×1920 MP4 short-form video with series-specific branding, typography, and animated sequences. Each video is unique to its series.</p>
+            <h3>Generate Short-Form Video</h3>
+            <p>The selected content is rendered into a branded short-form video.</p>
           </div>
         </div>
         <div class="pipeline-step">
           <div class="step-num">03</div>
           <div class="step-content">
-            <h3>TikTok Publishing</h3>
-            <p>Authenticates via OAuth 2.0 with PKCE, queries creator info, initialises upload, and publishes directly to the @signal333hq TikTok account via the Content Posting API.</p>
+            <h3>Authorise TikTok Account</h3>
+            <p>The official SIGNAL333 TikTok account authorises access via OAuth 2.0.</p>
           </div>
         </div>
         <div class="pipeline-step">
           <div class="step-num">04</div>
           <div class="step-content">
-            <h3>Logging &amp; Scheduling</h3>
-            <p>Logs every published script with timestamp. Runs daily via Windows Task Scheduler. Fully automated — no manual steps after initial setup.</p>
+            <h3>Upload Through Content Posting API</h3>
+            <p>Video is uploaded to TikTok using the Content Posting API.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h3>Publish to Authorised Account</h3>
+            <p>Content is published directly to the authorised @signal333hq account.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="section-label">Content Series</div>
-      <div class="series-grid">
-        <div class="series-item">
-          <div class="series-name">Thinking Dojo</div>
-          <div class="series-desc">Critical thinking for children</div>
-        </div>
-        <div class="series-item">
-          <div class="series-name">OI Series</div>
-          <div class="series-desc">Opportunity Intelligence</div>
-        </div>
-        <div class="series-item">
-          <div class="series-name">Hunter Intelligence</div>
-          <div class="series-desc">Career strategy system</div>
-        </div>
-        <div class="series-item">
-          <div class="series-name">1LINE</div>
-          <div class="series-desc">One insight, daily</div>
-        </div>
-        <div class="series-item">
-          <div class="series-name">RC Loop</div>
-          <div class="series-desc">Career development framework</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section>
     <div class="wrap">
@@ -533,18 +513,6 @@
         </tr>
       </table>
 
-      <div class="platforms">
-        <div class="platform">
-          <div class="platform-name">YouTube</div>
-          <div class="platform-role">Library Engine</div>
-          <div class="platform-desc">Sequential publishing. Builds a permanent, searchable archive of educational content over time.</div>
-        </div>
-        <div class="platform">
-          <div class="platform-name">TikTok</div>
-          <div class="platform-role">Discovery Engine</div>
-          <div class="platform-desc">Random selection. Algorithm-driven discovery. Reaches new audiences daily without repetition.</div>
-        </div>
-      </div>
     </div>
   </section>
 
