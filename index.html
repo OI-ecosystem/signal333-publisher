@@ -3,460 +3,656 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIGNAL333 Publisher — Publish. Consistently. Automatically.</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAHDklEQVR4nL2Xa4hdVxXHf2vvc+65c++dZzJN2jSlqXn5KFRratBB6gMVtaEWJZEU/GBTHyStRBFNEQVFEPwUwQfkg4jYVls0YpuiiZpWimLNoBhtNJrnzNiZufPIfZ3nXn44Z2ZuZiZp8IMbDvtw9jlr/fd//dda+4hIv3JDQ0CKme65e+jSrDdm1rtx53L1vAhowa/ma6qg2dI91wfyKgC6nIoABsRcDUYBUbAWDZuAINYDdSBuCdz/DECkcGpAbNe9WVxXVQinqWy/izQKSS78G4y35FzdNUGYa/vuduqB8fPLBmB78suvgu3Bw6P3EwfQ54+hm7eiLgPPL76VJbA3zMDi7goAxisuH0yQz36AqiDzDSrf/gathx/ATYPfSYGgcJ4VBrPc3irhWAXAQnwLBsyy3XtVKNXQlsNfM4ipZSS3byGbdtg5QWwFpAApDkiXMkLciuxYGQLpAtC9c9sDXi+UBqBTorLjzQQ//SayYyf6Sgc6BpoCWga/AqaUfyvLhLssFMsY6N69XaLfBuBVoDIEoU/tk/cTHdpLXLIErh9JKzAPNAGpQubnGsiSIiUdaHfmLLFwNQPd6SUGjAXxwaugXg3tGDyvj/Q9I8SJxVxSqGxAoyrMALOA10tpy2akGaEqYEu5G+mqG10sXCMEXRngldFE8EKltv+jeO94K+5cA2YVbQgarIOwDNOgdRCvB/nRYYKvHcL3S2i7CdYvXK0MQReArsVFBnw0E4JNmyh97+u0P7uHtFxFWhZmBGYULQ2hzQAmcwZcZomuCOGDe7HfeYry3SMQTuWhWCUVV6kDXWIxHhInuIP7aY/swL3s0AhcQ+AVYBJUy2jDwvQCAMnZ+KsjrGwneeRJSnu+hQQ9gLseA6sMVTCQziqccTBl0NihswqXgHHQdog2M6iDzoHGCUwBYwKnI7Lzlnj9ByDoBZeuIOEapbirq5FB3cG4gQ5oJ0ZnMxgHYkEb06CV3JICUQgXIrACcwHyt+/Di19G40YuSJdd5clb1akW9dtlQApTGZQV2qCNOTQIwSqagsxdQLNB8DX/NGzD2BCEE8hLh+DC0SKNA3AJr1IJF9qny0XjUtAQJiXP4xCYn0ODYocZ6PwlRLeAL+AUOh3403eRiWeg8Q8IBiANC1u6oictAhBjMEXVymEokGKMg8kruHYjx9WcQcoziGuiqcO0J3A6ifhzCAnaqSOXHofSIJQHIGnncTcGnANTFKIiFJKfiATVDhCTv90DlPJy6lpAH9heMD62YslSCxJgyhVco46p9eKSFOII8SI07UA4C6QIQk6dAhaIii3XQCxizIA6l7Bly1a2bduMiOHc+YvMX2nSaLZ597vuJY5DLl4ep9OJOHP6ZW65/Q6M9bh87hJv2nkPp14aZXBNH0ODfZw7+y9MrQ9v5C1kSUQ2MQVr1kKcoNN1ZN1NaOpg9A/QmsdTzejpCThy5DBnzvyTdrvJsWMRD338QVRhbHyCjbfewsnnf88Xv/AZHn/yKGPjEySJo1Ly+NkTh9m999M0mi12f/iDfOmxg0hs0Dtfh+77FHxsN9w1gr5zDzz2ADqyG15zN+y/B0QwIpYoCjly5AeMjV0kKJXZtev9BEGJtcNrOHr0WTLn2HXfezl+4iRGMr76lc8zNFDlcwf3se/hRzj46EO8fvsmqtUyG2/bzGDgET1zguznf0TDtehzx+E3Z2CmCr94Fn47DsFGIMLLzwgG3/cwtsTM3Dx/+fNpms0mcbvNgf37aDWbjJ6/yPjlcX7y9A+ZmZmjv7eX5479kjvf8FrqU1NYFJemHHz0AE8ff5HfmW2Y46O4VgTDO+GFk7kwva1w6tfQmQX8bhEmedHBFXMA5d5CTEEuUFPB1qpkV/5DXkS9QlhZIdh2IeAYqfVDcxaCKmQO0kbxri3EXgbxizQU8AbXI9aClbyYOIPcex/uV08gb3wfenYU2XAHrn8d3ugJGL4NnTwPtQFMrQ9XG4azp7Bvv5/sxBPwto+gL/wY2fkh9OLfYeI0Ul2TCxBBr9QhS3IGVIuSm5+xFyoD4CGkUB6CcD4/nNog303PEHSmcxbEA7+Mpi1QH7QD/gAkcwV7rki/hUaXp6SIIEivloMyN998E8YYsszRarUZHOxnerrO7GwDGR4GvwwGNI4Q46GaIaUypCkaRxCH2FaTWzesJ1PFCpR7KqRpQhwnZAqeZ+m0O3ieT70+QxzHeIIUTjsEQQlVxTlHpxPiXFETUwUXgzWQKqoxuAx1BuKisDhQhFQhCuP8f8FEOKe02iHWGFAfYy1JmuKKY9kqIaAQmAMMIhY0RdEiON399OqQqVjQpOvZQv83LPWZhbUiBAs/pyKywqxSNA9Z1sSX+4bFg6as9u4qQ4v3veUPuu0vN74qiGsYvtFx/RPR/2H8F85xQiJIwVMjAAAAAElFTkSuQmCC">
+<title>iDiscover by Signal333: turn your expertise into daily discovery</title>
+<meta name="description" content="iDiscover turns your knowledge, products and brand into a continuous stream of short-form videos, rendered and published to your own YouTube channel every day, automatically.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231F5EFF'/%3E%3Ccircle cx='14' cy='14' r='7' fill='none' stroke='white' stroke-width='2.6'/%3E%3Cpath d='M19.5 19.5L25 25' stroke='white' stroke-width='2.8' stroke-linecap='round'/%3E%3Ccircle cx='14' cy='14' r='2.2' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --gold:#D2AA32; --gold-dim:#8A6E1A;
-    --blue:#3E93FF; --blue-deep:#0B4FDE; --blue-glow:rgba(62,147,255,0.16);
-    --bg:#07070A; --bg2:#0E0E13; --bg3:#121218;
-    --ink:#EDEAE2; --muted:#8B8781; --muted-dim:#5C584F;
-    --border:#1D1D22; --border-soft:#17171B;
+    --bg:#F6F7F9; --surface:#FFFFFF; --surface2:#FBFBFC;
+    --ink:#0E1726; --ink2:#2B3647; --muted:#5E6878; --faint:#8A93A3;
+    --line:#E3E7EE; --line2:#EDF0F4;
+    --accent:#1F5EFF; --accent-ink:#1747C7; --accent-soft:#EDF2FF; --accent-line:#C9D7FF;
+    --gold:#A87A1E; --gold-soft:#FBF4E4;
+    --ok:#15803D; --ok-soft:#EAF7EE;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(14,23,38,.04), 0 8px 24px -12px rgba(14,23,38,.10);
   }
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg); color:var(--ink);
-    font-family:'Inter',sans-serif; font-size:15px; line-height:1.7;
-    min-height:100vh; overflow-x:hidden;
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  h1,h2,h3{color:var(--ink);letter-spacing:-.015em}
+  h1,h2{font-family:'Fraunces',Georgia,serif;font-weight:600}
+  h3{font-weight:600;font-size:17px;line-height:1.35}
+  p{color:var(--ink2)}
+  .muted{color:var(--muted)}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;transition:transform .15s, background .15s, border-color .15s;white-space:nowrap}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-ink);transform:translateY(-1px)}
+  .btn-ghost{background:var(--surface);border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--faint)}
+  .btn-sm{padding:9px 16px;font-size:14px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:rgba(246,247,249,.88);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand svg{width:32px;height:32px;flex-shrink:0}
+  .brand b{font-size:19px;letter-spacing:-.02em}
+  .brand small{font-family:'DM Mono',monospace;font-size:11px;color:var(--faint);letter-spacing:.08em;margin-left:2px}
+  .nav-links{display:flex;gap:28px;font-size:14.5px;color:var(--muted)}
+  .nav-links a{text-decoration:none}
+  .nav-links a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{padding:84px 0 72px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(40px,5.6vw,64px);line-height:1.05;margin:18px 0 22px}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero .lead{font-size:18.5px;color:var(--ink2);max-width:540px;margin-bottom:32px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+  .hero-note{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+  .hero-note span{display:inline-flex;align-items:center;gap:7px}
+  .tick{width:16px;height:16px;border-radius:50%;background:var(--ok-soft);color:var(--ok);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+
+  /* pipeline card */
+  .pipeline{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+  .pipeline-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .pipeline-head .eyebrow{color:var(--muted)}
+  .live-pill{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--ok);background:var(--ok-soft);border:1px solid #CBEBD5;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:6px}
+  .live-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--ok)}
+  .stage{display:flex;align-items:center;gap:14px;padding:13px 14px;border:1px solid var(--line2);border-radius:12px;background:var(--surface2)}
+  .stage + .arrow{height:18px;display:flex;justify-content:center;color:var(--faint)}
+  .stage .ico{width:36px;height:36px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .stage .ico svg{width:18px;height:18px}
+  .stage b{display:block;font-size:14.5px}
+  .stage small{display:block;font-size:12.5px;color:var(--muted);line-height:1.4}
+  .stage.core{border-color:var(--accent-line);background:var(--accent-soft)}
+  .stage.core .ico{background:var(--accent);color:#fff}
+  .stage.dest .ico{background:var(--gold-soft);color:var(--gold)}
+
+  /* proof strip */
+  .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+  .proof-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .proof-item{padding:28px 22px;border-right:1px solid var(--line2)}
+  .proof-item:last-child{border-right:none}
+  .proof-item b{display:block;font-family:'Fraunces',serif;font-size:34px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+  .proof-item span{font-size:13.5px;color:var(--muted)}
+
+  /* sections */
+  section{padding:96px 0}
+  .section-head{max-width:700px;margin-bottom:52px}
+  .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+  .section-head h2{font-size:clamp(30px,3.8vw,44px);line-height:1.12;margin:12px 0 16px}
+  .section-head p{font-size:17px;color:var(--muted)}
+  .alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+  /* problem */
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .contrast-card{border-radius:var(--radius);padding:30px;border:1px solid var(--line);background:var(--surface)}
+  .contrast-card.after{border-color:var(--accent-line);background:linear-gradient(180deg,var(--accent-soft),var(--surface) 70%)}
+  .contrast-card h3{margin-bottom:16px;font-size:18px}
+  .contrast-card ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .contrast-card li{display:flex;gap:10px;font-size:15px;color:var(--ink2)}
+  .contrast-card li::before{content:'—';color:var(--faint);flex-shrink:0}
+  .contrast-card.after li::before{content:'✓';color:var(--accent);font-weight:700}
+
+  /* how it works */
+  .how-grid{display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:start}
+  .steps{display:flex;flex-direction:column}
+  .step{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:24px 0;border-top:1px solid var(--line)}
+  .step:last-child{border-bottom:1px solid var(--line)}
+  .step-num{width:40px;height:40px;border-radius:50%;border:1px solid var(--accent-line);background:var(--accent-soft);color:var(--accent);font-family:'DM Mono',monospace;font-weight:500;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .step h3{margin-bottom:6px}
+  .step p{font-size:15px;color:var(--muted)}
+  .phone{position:sticky;top:96px}
+  .phone-frame{background:#0E1726;border-radius:38px;padding:11px;box-shadow:0 30px 60px -28px rgba(14,23,38,.45),0 0 0 1px #1c2536}
+  .phone-frame video{width:100%;aspect-ratio:9/16;border-radius:28px;background:#111;object-fit:cover}
+  .phone-cap{margin-top:16px;font-size:13.5px;color:var(--muted);text-align:center;line-height:1.5}
+  .phone-cap b{color:var(--ink);font-weight:600}
+
+  /* anatomy */
+  .anatomy{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .anat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .anat .tag{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+  .anat h3{margin-bottom:10px;font-size:18px}
+  .anat p{font-size:15px;color:var(--muted)}
+  .beats{margin-top:16px;display:flex;flex-direction:column;gap:6px}
+  .beats div{font-size:13.5px;padding:8px 12px;border-radius:8px;background:var(--surface2);border:1px solid var(--line2);color:var(--ink2)}
+  .beats div b{font-family:'DM Mono',monospace;font-weight:500;color:var(--faint);margin-right:8px;font-size:12px}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;margin-top:8px}
+  .gallery figure{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+  .gallery img{border-radius:10px;width:100%}
+  .gallery figcaption{font-size:13.5px;color:var(--muted);padding:12px 4px 2px}
+  .gallery figcaption b{display:block;color:var(--ink);font-size:14.5px}
+  .tips{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .tips div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;font-size:14px;color:var(--ink2)}
+  .tips b{display:block;font-size:15px;color:var(--ink);margin-bottom:4px}
+  .card-example{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:center;margin-top:56px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:36px}
+  .card-example img{border-radius:14px;box-shadow:0 20px 40px -20px rgba(14,23,38,.35)}
+  .card-example h3{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin:10px 0 14px}
+  .card-example ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+  .card-example li{display:flex;gap:10px;font-size:15px;color:var(--ink2)}
+  .card-example li::before{content:'✓';color:var(--accent);font-weight:700}
+
+  /* features */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:border-color .2s, transform .2s}
+  .feat:hover{border-color:var(--accent-line);transform:translateY(-2px)}
+  .feat .ico{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .feat .ico svg{width:20px;height:20px}
+  .feat h3{margin-bottom:8px}
+  .feat p{font-size:14.5px;color:var(--muted)}
+
+  /* portfolio */
+  .portfolio{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .ip{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .ip b{display:block;font-size:15px;margin-bottom:4px}
+  .ip span{font-size:13px;color:var(--muted);line-height:1.45;display:block}
+  .ip .meta{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--faint);margin-top:10px}
+  .portfolio-note{margin-top:18px;font-size:14px;color:var(--muted)}
+
+  /* layers */
+  .layers{display:flex;flex-direction:column;gap:10px;max-width:820px;margin:0 auto}
+  .layer{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;padding:18px 22px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+  .layer b{font-size:15px}
+  .layer span{font-size:14.5px;color:var(--muted)}
+  .layer.core{background:var(--accent);border-color:var(--accent)}
+  .layer.core b,.layer.core span{color:#fff}
+  .layer.core span{opacity:.88}
+
+  /* journey */
+  .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:j}
+  .j{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 18px;position:relative}
+  .j::before{counter-increment:j;content:counter(j,decimal-leading-zero);font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);display:block;margin-bottom:8px}
+  .j b{display:block;font-size:14.5px;margin-bottom:4px}
+  .j span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
+  .j.gate{border-color:var(--accent-line);background:var(--accent-soft)}
+  .journey-note{margin-top:22px;padding:18px 22px;border-radius:12px;background:var(--gold-soft);border:1px solid #EFDFB8;font-size:14.5px;color:#5B4513}
+
+  /* security */
+  .sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:920px;margin:0 auto}
+  .sec{display:flex;gap:14px;padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+  .sec .tick{width:22px;height:22px;font-size:12px;margin-top:2px}
+  .sec b{display:block;font-size:15px;margin-bottom:3px}
+  .sec span{font-size:14px;color:var(--muted);line-height:1.55;display:block}
+
+  /* deployment options */
+  .options{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .opt{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:32px}
+  .opt.featured{border-color:var(--accent-line);box-shadow:0 0 0 3px var(--accent-soft)}
+  .opt .tag{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .opt h3{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin:8px 0 10px}
+  .opt p{font-size:15px;color:var(--muted);margin-bottom:18px}
+  .opt ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .opt li{display:flex;gap:10px;font-size:14.5px;color:var(--ink2)}
+  .opt li::before{content:'✓';color:var(--accent);font-weight:700}
+
+  /* engagement */
+  .offer{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:20px;padding:34px 38px;margin-bottom:34px;box-shadow:0 0 0 5px var(--accent-soft)}
+  .offer .tag{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .offer h3{font-family:'Fraunces',serif;font-size:30px;font-weight:600;margin:6px 0 8px}
+  .offer p{color:var(--muted);font-size:15.5px}
+  .offer ul{list-style:none;display:flex;gap:18px;flex-wrap:wrap;margin-top:14px}
+  .offer li{display:flex;gap:8px;font-size:14.5px;color:var(--ink2)}
+  .offer li::before{content:'✓';color:var(--accent);font-weight:700}
+  .price{text-align:right}
+  .price b{display:block;font-family:'Fraunces',serif;font-size:46px;line-height:1;letter-spacing:-.02em}
+  .price span{display:block;font-size:14px;color:var(--muted);margin:6px 0 16px}
+  .offer ul.incl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 18px}
+  .qualify{font-size:14px;color:var(--muted);margin:-14px 0 22px;padding:0 4px}
+  .scope{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .scope-col{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .scope-col b{display:block;font-size:15.5px;margin-bottom:6px}
+  .scope-col span{font-size:14px;color:var(--muted);line-height:1.6;display:block}
+  .units{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .unit{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .unit b{display:block;font-size:16px;margin-bottom:6px}
+  .unit span{font-size:14px;color:var(--muted);line-height:1.55;display:block}
+  .unit.pilot{border-color:var(--accent);background:var(--accent-soft)}
+  .unit.pilot b{color:var(--accent-ink)}
+  .units-note{text-align:center;margin-top:26px;font-size:14.5px;color:var(--muted)}
+
+  /* who */
+  .who{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .who-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .who-card .ico{width:38px;height:38px;border-radius:10px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .who-card .ico svg{width:19px;height:19px}
+  .who-card b{display:block;font-size:15.5px;margin-bottom:5px}
+  .who-card span{font-size:14px;color:var(--muted);line-height:1.55;display:block}
+
+  /* faq */
+  .faq{max-width:780px;margin:0 auto}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:last-child{border-bottom:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:600;font-size:16px;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';font-family:'DM Mono',monospace;color:var(--accent);font-size:20px;line-height:1}
+  details[open] summary::after{content:'−'}
+  details p{padding:0 0 20px;color:var(--muted);font-size:15px;max-width:700px}
+
+  /* cta */
+  .cta{padding:0 0 96px}
+  .cta-box{background:var(--ink);border-radius:24px;padding:60px 48px;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+  .cta-box h2{color:#fff;font-size:clamp(28px,3.4vw,40px);line-height:1.15;margin-bottom:12px}
+  .cta-box p{color:#B8C1CF;font-size:16.5px}
+  .cta-actions{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+  .cta-box .btn-ghost{background:transparent;color:#fff;border-color:#3A4556}
+  .cta-box .btn-ghost:hover{border-color:#8A93A3}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:36px 0;background:var(--surface)}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-links a{text-decoration:none}
+  .foot-links a:hover{color:var(--ink)}
+
+  @media (max-width:980px){
+    .offer ul.incl{grid-template-columns:1fr 1fr}
+    .hero-grid,.how-grid,.card-example,.cta-box{grid-template-columns:1fr}
+    .phone{position:static;max-width:320px;margin:0 auto}
+    .portfolio{grid-template-columns:repeat(2,1fr)}
+    .journey{grid-template-columns:repeat(2,1fr)}
+    .units,.who{grid-template-columns:repeat(2,1fr)}
+    .anatomy,.grid-3{grid-template-columns:1fr 1fr}
+    .card-example img{max-width:260px}
+    .tips{grid-template-columns:1fr 1fr}
   }
-  body::before{
-    content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    opacity:0.5;
-  }
-  .wrap{max-width:1120px; margin:0 auto; padding:0 32px; position:relative; z-index:1;}
-  .eyebrow{font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--gold-dim);}
-  h1,h2,h3{font-family:'Cormorant Garamond',serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
-  a{color:inherit;}
-
-  /* HEADER */
-  header{border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(7,7,10,0.85); backdrop-filter:blur(10px); z-index:10;}
-  header .wrap{display:flex; align-items:center; justify-content:space-between; padding:20px 32px;}
-  .brand{display:flex; align-items:center; gap:10px;}
-  .brand img{height:30px; width:auto;}
-  .brand-text{font-family:'DM Mono',monospace; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink);}
-  .brand-text span{color:var(--muted-dim);}
-  nav.links{display:flex; gap:36px; font-size:13px; color:var(--muted);}
-  nav.links a{text-decoration:none; transition:color .2s;}
-  nav.links a:hover{color:var(--ink);}
-  .header-cta{display:flex; gap:12px; align-items:center;}
-
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    padding:12px 24px; font-size:13px; font-weight:500; letter-spacing:.02em;
-    border-radius:8px; text-decoration:none; cursor:pointer; border:1px solid transparent;
-    font-family:'Inter',sans-serif; transition:all .2s;
-  }
-  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-deep)); color:#fff; box-shadow:0 0 0 1px rgba(62,147,255,.3), 0 8px 24px -8px var(--blue-glow);}
-  .btn-primary:hover{filter:brightness(1.12); transform:translateY(-1px);}
-  .btn-ghost{border-color:var(--border); color:var(--ink); background:transparent;}
-  .btn-ghost:hover{border-color:var(--muted-dim);}
-  .btn-sm{padding:9px 16px; font-size:12px;}
-
-  /* HERO */
-  .hero{padding:120px 0 90px; border-bottom:1px solid var(--border); position:relative;}
-  .hero::before{
-    content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%);
-    width:900px; height:600px; background:radial-gradient(ellipse at center, var(--blue-glow), transparent 70%);
-    pointer-events:none; z-index:0;
-  }
-  .hero-inner{position:relative; z-index:1; text-align:center; max-width:760px; margin:0 auto;}
-  .hero .eyebrow{margin-bottom:28px;}
-  .hero h1{font-size:clamp(48px,7vw,80px); line-height:1.04; margin-bottom:26px;}
-  .hero h1 em{font-style:italic; background:linear-gradient(135deg,var(--blue),#7FC4FF); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  .hero p.lead{color:var(--muted); font-size:16px; max-width:520px; margin:0 auto 40px; line-height:1.8;}
-  .hero-actions{display:flex; gap:14px; justify-content:center; margin-bottom:80px;}
-
-  /* MOCK SCREENSHOT */
-  .screenshot{
-    max-width:1180px; margin:0 auto; border-radius:16px; overflow:hidden;
-    border:1px solid var(--border); background:var(--bg2);
-    box-shadow:0 40px 100px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(62,147,255,.06);
-    position:relative; z-index:1;
-  }
-  .screenshot-bar{display:flex; align-items:center; gap:8px; padding:14px 18px; border-bottom:1px solid var(--border); background:var(--bg3);}
-  .screenshot-bar span{width:10px; height:10px; border-radius:50%; background:var(--border-soft);}
-  .screenshot-body{display:grid; grid-template-columns:230px 1fr; min-height:440px;}
-  .screenshot-nav{border-right:1px solid var(--border); padding:26px 20px; display:flex; flex-direction:column; gap:6px;}
-  .screenshot-nav .item{padding:11px 14px; border-radius:7px; font-size:13.5px; color:var(--muted); font-family:'DM Mono',monospace;}
-  .screenshot-nav .item.active{background:rgba(62,147,255,.12); color:var(--blue); border:1px solid rgba(62,147,255,.25);}
-  .screenshot-main{padding:32px; display:flex; flex-direction:column; gap:20px;}
-  .queue-row{display:flex; align-items:center; gap:18px; padding:20px 22px; border:1px solid var(--border); border-radius:12px; background:var(--bg2);}
-  .queue-thumb{width:48px; height:70px; border-radius:6px; flex-shrink:0; background:linear-gradient(160deg,var(--blue),var(--blue-deep));}
-  .queue-meta{flex:1; min-width:0;}
-  .queue-meta .t{font-size:15px; color:var(--ink); margin-bottom:5px;}
-  .queue-meta .s{font-size:12.5px; color:var(--muted-dim); font-family:'DM Mono',monospace;}
-  .queue-status{font-size:12px; font-family:'DM Mono',monospace; padding:6px 13px; border-radius:20px; letter-spacing:.05em;}
-  .queue-status.live{color:#7FE0A8; background:rgba(127,224,168,.1); border:1px solid rgba(127,224,168,.25);}
-  .queue-status.sched{color:var(--gold); background:rgba(210,170,50,.1); border:1px solid rgba(210,170,50,.25);}
-  .queue-status.draft{color:var(--muted); background:rgba(139,135,129,.08); border:1px solid var(--border);}
-
-  /* SECTION GENERIC */
-  section{padding:100px 0; border-bottom:1px solid var(--border);}
-  .section-head{text-align:center; max-width:600px; margin:0 auto 64px;}
-  .section-head .eyebrow{margin-bottom:18px;}
-  .section-head h2{font-size:clamp(32px,4vw,44px); line-height:1.15;}
-  .section-head p{color:var(--muted); margin-top:16px; font-size:15px;}
-
-  /* CARD GRIDS */
-  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
-  .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
-  .card{
-    background:var(--bg2); border:1px solid var(--border); border-radius:14px; padding:32px 28px;
-    transition:border-color .2s, transform .2s;
-  }
-  .card:hover{border-color:rgba(62,147,255,.3); transform:translateY(-2px);}
-  .card .icon{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;
-    background:linear-gradient(135deg, rgba(62,147,255,.18), rgba(62,147,255,.05)); border:1px solid rgba(62,147,255,.25);}
-  .card .icon svg{width:20px; height:20px; stroke:var(--blue);}
-  .card h3{font-size:19px; margin-bottom:10px;}
-  .card p{color:var(--muted); font-size:13.5px; line-height:1.75;}
-
-  /* WHY SIGNAL333 (why-cards use gold accent) */
-  .why-card .icon{background:linear-gradient(135deg, rgba(210,170,50,.18), rgba(210,170,50,.05)); border-color:rgba(210,170,50,.3);}
-  .why-card .icon svg{stroke:var(--gold);}
-
-  /* HOW IT WORKS */
-  .steps{display:flex; flex-direction:column; max-width:760px; margin:0 auto;}
-  .step-row{display:grid; grid-template-columns:56px 1fr; gap:24px; padding:30px 0; border-top:1px solid var(--border); align-items:flex-start;}
-  .step-row:last-child{border-bottom:1px solid var(--border);}
-  .step-num{font-family:'Cormorant Garamond',serif; font-size:30px; font-style:italic; color:var(--blue); opacity:.85;}
-  .step-row h3{font-size:18px; margin-bottom:6px; font-family:'Inter',sans-serif; font-weight:600;}
-  .step-row p{color:var(--muted); font-size:13.5px;}
-  .step-arrow{text-align:center; color:var(--muted-dim); font-size:13px; padding:2px 0;}
-
-  /* BUILT FOR */
-  .built-card{text-align:center; padding:36px 20px;}
-  .built-card .emoji{font-size:30px; margin-bottom:14px; display:block;}
-  .built-card h3{font-size:16px; font-family:'Inter',sans-serif; font-weight:600; margin-bottom:6px;}
-  .built-card p{color:var(--muted-dim); font-size:12.5px;}
-
-  /* PLATFORMS */
-  .platform-row{display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
-  .platform-chip{display:flex; align-items:center; gap:10px; padding:14px 22px; border:1px solid var(--border); border-radius:10px; background:var(--bg2); font-size:13.5px;}
-  .platform-chip.live{border-color:rgba(62,147,255,.3);}
-  .platform-chip .dot{width:8px; height:8px; border-radius:50%;}
-  .platform-chip.live .dot{background:#7FE0A8;}
-  .platform-chip.soon .dot{background:var(--muted-dim);}
-  .platform-chip.soon{color:var(--muted-dim);}
-
-  /* SECURITY */
-  .security-list{max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:18px;}
-  .security-item{display:flex; gap:16px; align-items:flex-start; padding:18px 22px; border:1px solid var(--border); border-radius:10px; background:var(--bg2);}
-  .security-item .check{color:var(--blue); font-size:16px; margin-top:1px;}
-  .security-item p{font-size:13.5px; color:var(--muted); margin:0;}
-  .security-item strong{color:var(--ink); font-weight:600;}
-
-  /* ORIGINAL CONTENT CALLOUT */
-  .callout{max-width:720px; margin:0 auto; text-align:center; padding:44px 40px; border:1px solid rgba(210,170,50,.25); border-radius:16px;
-    background:linear-gradient(180deg, rgba(210,170,50,.06), transparent);}
-  .callout p{font-size:15px; color:var(--ink); line-height:1.9; font-style:italic; font-family:'Cormorant Garamond',serif;}
-  .callout p + p{margin-top:14px; color:var(--muted); font-size:13px; font-style:normal; font-family:'Inter',sans-serif;}
-
-  /* PRICING */
-  .pricing-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
-  .price-card{border:1px solid var(--border); border-radius:14px; padding:30px 24px; background:var(--bg2); text-align:left;}
-  .price-card.featured{border-color:rgba(62,147,255,.4); background:linear-gradient(180deg, rgba(62,147,255,.08), var(--bg2));}
-  .price-card .tier{font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted-dim); margin-bottom:12px;}
-  .price-card h3{font-size:24px; font-family:'Inter',sans-serif; font-weight:600; margin-bottom:6px;}
-  .price-card .status{font-size:11.5px; color:var(--gold); font-family:'DM Mono',monospace; letter-spacing:.05em; margin-bottom:20px;}
-  .price-card ul{list-style:none; display:flex; flex-direction:column; gap:10px;}
-  .price-card li{font-size:12.5px; color:var(--muted); padding-left:16px; position:relative;}
-  .price-card li::before{content:'—'; position:absolute; left:0; color:var(--muted-dim);}
-
-  /* FAQ */
-  .faq{max-width:720px; margin:0 auto; display:flex; flex-direction:column;}
-  .faq-item{border-top:1px solid var(--border); padding:26px 0;}
-  .faq-item:last-child{border-bottom:1px solid var(--border);}
-  .faq-item h3{font-size:16px; font-family:'Inter',sans-serif; font-weight:600; margin-bottom:8px;}
-  .faq-item p{color:var(--muted); font-size:13.5px;}
-
-  /* TECH DETAILS (de-emphasized) */
-  .tech-details{padding:60px 0;}
-  .tech-details .section-head{margin-bottom:36px;}
-  .tech-table{max-width:640px; margin:0 auto; font-family:'DM Mono',monospace; font-size:12.5px;}
-  .tech-table .row{display:flex; justify-content:space-between; padding:11px 0; border-bottom:1px solid var(--border-soft); color:var(--muted-dim);}
-  .tech-table .row span:last-child{color:var(--muted); text-align:right;}
-
-  /* FOOTER */
-  footer{padding:48px 0;}
-  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
-  .footer-brand{font-family:'DM Mono',monospace; font-size:12px; color:var(--muted-dim); letter-spacing:.05em;}
-  .footer-links{display:flex; gap:24px; font-size:12.5px;}
-  .footer-links a{color:var(--muted-dim); text-decoration:none; transition:color .2s;}
-  .footer-links a:hover{color:var(--gold);}
-
-  @media (max-width: 860px){
-    nav.links{display:none;}
-    .grid-3, .grid-4, .grid-2, .pricing-grid{grid-template-columns:1fr;}
-    .screenshot-body{grid-template-columns:1fr;}
-    .screenshot-nav{display:none;}
-    .hero-actions{flex-direction:column; align-items:center;}
+  @media (max-width:720px){
+    .nav-links{display:none}
+    .hero{padding:52px 0 48px}
+    section{padding:68px 0}
+    .proof-grid{grid-template-columns:1fr 1fr}
+    .proof-item:nth-child(2){border-right:none}
+    .proof-item:nth-child(-n+2){border-bottom:1px solid var(--line2)}
+    .proof-item b{font-size:26px}
+    .proof-item{padding:22px 16px}
+    .contrast,.anatomy,.grid-3,.sec-grid,.options,.units,.who,.gallery,.tips,.offer,.scope{grid-template-columns:1fr}
+    .offer{padding:26px 22px}
+    .offer ul.incl{grid-template-columns:1fr}
+    .price{text-align:left}
+    .gallery figure{max-width:340px;margin:0 auto}
+    .layer{grid-template-columns:1fr;gap:4px}
+    .cta-box{padding:40px 26px}
+    .card-example{padding:24px}
+    .brand small{display:none}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
-    <div class="brand">
-      <img src="data:image/png;base64,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" alt="SIGNAL333 Publisher">
-      <div class="brand-text">SIGNAL333 <span>/</span> PUBLISHER</div>
-    </div>
-    <nav class="links">
-      <a href="#why">Product</a>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="iDiscover home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1F5EFF"/><circle cx="14" cy="14" r="7" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M19.5 19.5L25 25" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/><circle cx="14" cy="14" r="2.2" fill="#fff"/></svg>
+      <b>iDiscover</b><small>BY SIGNAL333</small>
+    </a>
+    <nav class="nav-links" aria-label="Main">
       <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#features">What you get</a>
+      <a href="#deploy">Deployment</a>
+      <a href="#engage">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <div class="header-cta">
-      <a href="mailto:pay1709@sky.com" class="btn btn-ghost btn-sm">Watch Demo</a>
-      <a href="mailto:pay1709@sky.com" class="btn btn-primary btn-sm">Join Beta</a>
-    </div>
+    <a class="btn btn-primary btn-sm" href="mailto:pay1709@sky.com?subject=iDiscover%20Founding%2050%20place">Founding 50</a>
   </div>
 </header>
 
+<main id="top">
+
+<!-- HERO -->
 <section class="hero">
-  <div class="wrap hero-inner">
-    <div class="eyebrow">AI-Powered Publishing Platform</div>
-    <h1>Publish.<br><em>Consistently.</em><br>Automatically.</h1>
-    <p class="lead">Create once. Publish everywhere. Schedule and automate original short-form content using official platform authorisation.</p>
-    <div class="hero-actions">
-      <a href="mailto:pay1709@sky.com" class="btn btn-primary">Join Beta</a>
-      <a href="mailto:pay1709@sky.com" class="btn btn-ghost">Watch Demo</a>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Discovery infrastructure for expertise</div>
+      <h1>Your expertise,<br><em>discovered daily.</em></h1>
+      <p class="lead">iDiscover turns your knowledge, products and brand into a continuous stream of short-form videos. Each one is produced and published to <strong>your own YouTube channel</strong> every day, then sends viewers to <strong>your</strong> destination. No filming, no editing, and no daily uploads.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:pay1709@sky.com?subject=iDiscover%20Founding%2050%20place">Claim a founding place</a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+      <div class="hero-note">
+        <span><i class="tick">✓</i>Your channel, your content</span>
+        <span><i class="tick">✓</i>Runs unattended, every day</span>
+        <span><i class="tick">✓</i>Tested before anything goes live</span>
+      </div>
+    </div>
+
+    <div class="pipeline" aria-label="The iDiscover pipeline">
+      <div class="pipeline-head"><span class="eyebrow">The discovery pipeline</span><span class="live-pill">In production</span></div>
+      <div class="stage"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5h11l5 5v9H4z"/><path d="M8 11h8M8 15h5"/></svg></div><div><b>Your knowledge</b><small>Insights, products, methods, expertise</small></div></div>
+      <div class="arrow">↓</div>
+      <div class="stage"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div><b>Structured content + your brand</b><small>Your expertise, shaped for discovery</small></div></div>
+      <div class="arrow">↓</div>
+      <div class="stage core"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></div><div><b>iDiscover</b><small>Turns it into daily discovery content</small></div></div>
+      <div class="arrow">↓</div>
+      <div class="stage"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg></div><div><b>Your YouTube channel</b><small>A new Short, every day</small></div></div>
+      <div class="arrow">↓</div>
+      <div class="stage dest"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10l8-6 8 6v10z"/><path d="M10 20v-5h4v5"/></svg></div><div><b>Your destination</b><small>Website, store, booking page, book</small></div></div>
     </div>
   </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="wrap proof-grid">
+    <div class="proof-item"><b>5</b><span>independent channels running on one engine in our own portfolio</span></div>
+    <div class="proof-item"><b>1,680+</b><span>pieces of discovery content across our own brands</span></div>
+    <div class="proof-item"><b>Daily</b><span>a new Short on every channel, every day</span></div>
+    <div class="proof-item"><b>0</b><span>manual steps per day once a deployment is live</span></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section>
   <div class="wrap">
-    <div class="screenshot">
-      <div class="screenshot-bar"><span></span><span></span><span></span></div>
-      <div class="screenshot-body">
-        <div class="screenshot-nav">
-          <div class="item active">Content Library</div>
-          <div class="item">Publishing Queue</div>
-          <div class="item">Accounts</div>
-          <div class="item">Analytics</div>
-          <div class="item">Settings</div>
-        </div>
-        <div class="screenshot-main">
-          <div class="queue-row">
-            <div class="queue-thumb"></div>
-            <div class="queue-meta"><div class="t">1LINE — Daily Insight #041</div><div class="s">TikTok · Scheduled</div></div>
-            <div class="queue-status sched">SCHEDULED</div>
-          </div>
-          <div class="queue-row">
-            <div class="queue-thumb"></div>
-            <div class="queue-meta"><div class="t">RC Loop — Career Framing</div><div class="s">YouTube Shorts · Published</div></div>
-            <div class="queue-status live">PUBLISHED</div>
-          </div>
-          <div class="queue-row">
-            <div class="queue-thumb"></div>
-            <div class="queue-meta"><div class="t">Thinking Dojo — Weekly Series</div><div class="s">TikTok · Draft</div></div>
-            <div class="queue-status draft">DRAFT</div>
-          </div>
-        </div>
+    <div class="section-head">
+      <div class="eyebrow">The problem</div>
+      <h2>Expertise only earns if people can find it.</h2>
+      <p>Discovery rewards consistency: one clear idea, every day, on a channel that keeps showing up. That's exactly the work experts, founders and small teams can't keep up with by hand.</p>
+    </div>
+    <div class="contrast">
+      <div class="contrast-card">
+        <h3>Publishing by hand</h3>
+        <ul>
+          <li>Write, design, render and upload every single day</li>
+          <li>Output stops when you're busy, ill or on holiday</li>
+          <li>Posts drift off-brand and off-message</li>
+          <li>No record of what went out, or when</li>
+          <li>Every new product means rebuilding the process</li>
+        </ul>
+      </div>
+      <div class="contrast-card after">
+        <h3>With iDiscover</h3>
+        <ul>
+          <li>Your knowledge is structured once into a discovery system</li>
+          <li>A new Short goes out every day, automatically</li>
+          <li>Every Short carries your approved message and your brand</li>
+          <li>Every publish is recorded, so you always know what went out</li>
+          <li>New products or channels are added, not rebuilt</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="why">
+<!-- HOW IT WORKS -->
+<section id="how" class="alt">
+  <div class="wrap how-grid">
+    <div>
+      <div class="section-head">
+        <div class="eyebrow">How it works</div>
+        <h2>From your knowledge to daily discovery, in four steps.</h2>
+        <p>You bring the knowledge and the destination. iDiscover turns it into a discovery system that keeps working, every day.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div><h3>Capture</h3><p>Your existing expertise and intellectual property.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div><h3>Structure</h3><p>Turn it into a repeatable discovery system.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div><h3>Publish</h3><p>Create and distribute daily discovery content.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div><h3>Compound</h3><p>Build an expanding library around your IP.</p></div></div>
+      </div>
+    </div>
+    <div class="phone">
+      <div class="phone-frame">
+        <video src="idiscover-demo.mp4" poster="idiscover-demo-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Example iDiscover Short for 1LINE Gift"></video>
+      </div>
+      <p class="phone-cap"><b>A real iDiscover Short</b><br>1LINE Gift, produced and published automatically.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT A SHORT DELIVERS -->
+<section>
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Why SIGNAL333</div>
-      <h2>One workflow. Every platform.</h2>
-      <p>Stop rebuilding your publishing process for every new platform. Create once, and let SIGNAL333 handle the rest.</p>
+    <div class="section-head center">
+      <div class="eyebrow">What every Short delivers</div>
+      <h2>Built to be understood in seconds.</h2>
+      <p>Each Short is designed to land one idea and point the right viewer to the right place, before they scroll on.</p>
+    </div>
+    <div class="anatomy">
+      <div class="anat">
+        <span class="tag">The idea</span>
+        <h3>One clear thought from your expertise</h3>
+        <p>Short, direct and in your voice: a single idea from your knowledge that gives the viewer a reason to stop.</p>
+      </div>
+      <div class="anat">
+        <span class="tag">The brand</span>
+        <h3>Your product, front and centre</h3>
+        <p>Every Short closes on your brand's own visual identity, so viewers remember who it came from and what you offer.</p>
+      </div>
+      <div class="anat">
+        <span class="tag">The next step</span>
+        <h3>A clear route to your destination</h3>
+        <p>Every Short is published ready to be found and acted on, pointing viewers straight to where you want them to go.</p>
+      </div>
+    </div>
+
+    <div class="section-head center" style="margin-top:80px;margin-bottom:36px">
+      <div class="eyebrow">Every brand, its own identity</div>
+      <h2>Your brand, not a template.</h2>
+      <p>Each product gets a visual identity built for it. Here are three from our own portfolio.</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="card-thinking-dojo.jpg" alt="The Thinking Dojo brand card: a parent with two children and www.alpha333.org" loading="lazy"><figcaption><b>The Thinking Dojo</b>Structured thinking for children 7–13</figcaption></figure>
+      <figure><img src="card-hunter-intelligence.jpg" alt="Hunter Intelligence brand card: on-chain opportunity signals and www.alpha333.org" loading="lazy"><figcaption><b>Hunter Intelligence</b>On-chain opportunity signals</figcaption></figure>
+      <figure><img src="card-opportunity-intelligence.jpg" alt="Opportunity Intelligence brand card: the ten-volume book series and www.alpha333.org" loading="lazy"><figcaption><b>Opportunity Intelligence</b>A ten-volume thinking framework</figcaption></figure>
+    </div>
+    <div class="tips">
+      <div><b>Recognisable</b>Shows the buyer's world, so the right viewer sees themselves in it.</div>
+      <div><b>Outcome-led</b>Sells the result, not a list of features.</div>
+      <div><b>One destination</b>One clear, readable place to go next.</div>
+      <div><b>Consistent</b>Matches the message, so trust carries through to the click.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="alt">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">What you get</div>
+      <h2>A discovery engine, not a posting tool.</h2>
+      <p>The same engine runs every deployment. Your content, artwork and channels stay entirely your own.</p>
     </div>
     <div class="grid-3">
-      <div class="card why-card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke-linecap="round"/></svg></div>
-        <h3>Create Once</h3>
-        <p>Write your educational or promotional content a single time. SIGNAL333 handles formatting, pacing and visual variety automatically.</p>
-      </div>
-      <div class="card why-card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2v20M2 12h20" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <h3>Publish Automatically</h3>
-        <p>Schedule publication to your connected social accounts and let the platform run on its own — no manual uploads, no missed days.</p>
-      </div>
-      <div class="card why-card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 18l6-6 4 4 6-8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Stay Consistent</h3>
-        <p>Maintain a daily publishing cadence without the repetitive manual work that makes consistency so hard to sustain.</p>
-      </div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg></div><h3>Your own channel</h3><p>One product line, one channel, one audience. Your Shorts build your channel and your subscriber base, not ours.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div><h3>Always fresh</h3><p>Your content library is worked through in full before anything comes round again, so your audience keeps seeing something new.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><h3>Multi-product, one channel</h3><p>Promote several products from one channel, each with its own identity, and each always shown with the right message.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Runs itself</h3><p>Built to run continuously without daily input. Once you're live, publishing simply keeps happening.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Built-in safeguards</h3><p>Designed so your content only ever reaches your channel. If something isn't right, it's caught and flagged rather than published.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l2 2 3-4"/></svg></div><h3>Full visibility</h3><p>Every publish is recorded, and a daily summary shows exactly what went out and whether anything needs attention.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/></svg></div><h3>Resilient by design</h3><p>An issue in one place never stops the rest. Your other channels keep publishing while it's dealt with.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Your schedule, your timezone</h3><p>Each channel goes live at the local time your audience is watching.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><h3>Grows without rebuilding</h3><p>More content, a new product, another channel: each is simply added to your deployment. Nothing is rebuilt.</p></div>
     </div>
   </div>
 </section>
 
-<section id="how">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">How It Works</div>
-      <h2>From idea to published, in five steps</h2>
-    </div>
-    <div class="steps">
-      <div class="step-row"><div class="step-num">1</div><div><h3>Create or import your content</h3><p>Bring in your own scripts, notes or ideas — or work from your existing content library.</p></div></div>
-      <div class="step-row"><div class="step-num">2</div><div><h3>Render into short-form video</h3><p>Your content is automatically rendered into a branded, platform-native short-form video.</p></div></div>
-      <div class="step-row"><div class="step-num">3</div><div><h3>Connect your account securely</h3><p>Authorise your TikTok or YouTube account using official, secure OAuth login — no passwords shared.</p></div></div>
-      <div class="step-row"><div class="step-num">4</div><div><h3>Review title and publishing settings</h3><p>Check captions, tags and scheduling before anything goes live.</p></div></div>
-      <div class="step-row"><div class="step-num">5</div><div><h3>Publish automatically</h3><p>SIGNAL333 handles the rest — publishing on schedule, logging every post, and preventing duplicates.</p></div></div>
-    </div>
-  </div>
-</section>
-
+<!-- PORTFOLIO PROOF -->
 <section>
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Security</div>
-      <h2>Built on official platform authentication</h2>
+      <div class="eyebrow">Proven in our own portfolio first</div>
+      <h2>Five brands. Five channels. One engine.</h2>
+      <p>Before offering iDiscover to anyone else, we built and proved it on Signal333's own portfolio. Every deployment went through the same test-before-live process a customer gets.</p>
     </div>
-    <div class="security-list">
-      <div class="security-item"><span class="check">✓</span><p><strong>Official authentication</strong> — every account connects using the platform's own OAuth login.</p></div>
-      <div class="security-item"><span class="check">✓</span><p><strong>No passwords stored</strong> — SIGNAL333 never sees or stores your platform password.</p></div>
-      <div class="security-item"><span class="check">✓</span><p><strong>You own your accounts</strong> — access can be revoked at any time from your platform settings.</p></div>
-      <div class="security-item"><span class="check">✓</span><p><strong>Original content only</strong> — the platform is built exclusively for content you own or have the right to publish.</p></div>
+    <div class="portfolio">
+      <div class="ip"><b>1LINE</b><span>Clarity tools, including 1LINE Gift and Astro</span><div class="meta">Live channel</div></div>
+      <div class="ip"><b>Hunter Intelligence</b><span>On-chain opportunity signals</span><div class="meta">Live channel</div></div>
+      <div class="ip"><b>OI Series</b><span>Opportunity Intelligence, Operator Stack, books</span><div class="meta">Live channel</div></div>
+      <div class="ip"><b>RC Loop</b><span>Résumé and spreadsheet clarity tools</span><div class="meta">Live channel</div></div>
+      <div class="ip"><b>The Thinking Dojo</b><span>Structured thinking for children 7–13</span><div class="meta">Live channel</div></div>
+    </div>
+    <p class="portfolio-note">Each brand runs on its own channel with its own content and identity, all driven by the same engine.</p>
+  </div>
+</section>
+
+<!-- ARCHITECTURE LAYERS -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">Architecture</div>
+      <h2>Infrastructure that connects your layers without owning them.</h2>
+      <p>iDiscover is the infrastructure layer. Everything that makes the output yours stays yours.</p>
+    </div>
+    <div class="layers">
+      <div class="layer"><b>Content layer</b><span>Your intellectual property: expertise, products, messages</span></div>
+      <div class="layer"><b>Presentation layer</b><span>Your brand: a visual identity for each product</span></div>
+      <div class="layer core"><b>Discovery layer · iDiscover</b><span>Structuring, production, distribution and monitoring</span></div>
+      <div class="layer"><b>Distribution layer</b><span>Your YouTube channels, with more destinations to come</span></div>
+      <div class="layer"><b>Commercial layer</b><span>Your website, store, booking page, books</span></div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- DEPLOYMENT JOURNEY -->
+<section id="deploy">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Built For</div>
-      <h2>Made for people who publish regularly</h2>
+      <div class="eyebrow">Deployment</div>
+      <h2>Nothing goes live until everything is proven.</h2>
+      <p>Every deployment follows the same proven path, from first conversation to a channel that runs every day.</p>
     </div>
-    <div class="grid-4">
-      <div class="card built-card"><span class="emoji">🎓</span><h3>Educators</h3><p>Turn lessons into a daily content stream</p></div>
-      <div class="card built-card"><span class="emoji">🏢</span><h3>Businesses</h3><p>Keep every channel active, effortlessly</p></div>
-      <div class="card built-card"><span class="emoji">🎙️</span><h3>Creators</h3><p>Publish more, without publishing manually</p></div>
-      <div class="card built-card"><span class="emoji">📰</span><h3>Publishers</h3><p>Scale a content operation across platforms</p></div>
+    <div class="journey">
+      <div class="j"><b>Discover</b><span>Your products, audience, goals and destination</span></div>
+      <div class="j"><b>Design</b><span>Your content library and visual identity, approved by you</span></div>
+      <div class="j"><b>Build</b><span>Your own dedicated deployment, connected to your channel</span></div>
+      <div class="j gate"><b>Prove</b><span>Tested and verified end to end before anything goes live</span></div>
+      <div class="j"><b>Run &amp; grow</b><span>Live every day, monitored, and expanded as you grow</span></div>
+    </div>
+    <div class="journey-note"><strong>Proven before it's public.</strong> We verify every deployment end to end before switching it on, so your first public Short goes out exactly as intended.</div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">Ownership and security</div>
+      <h2>Your accounts. Your keys. Your data.</h2>
+    </div>
+    <div class="sec-grid">
+      <div class="sec"><i class="tick">✓</i><div><b>You own the channel</b><span>Your YouTube channel sits in your Google account. We don't need to own it to publish to it.</span></div></div>
+      <div class="sec"><i class="tick">✓</i><div><b>Official Google sign-in</b><span>Channels connect through Google's own authorisation. Your password is never seen or stored.</span></div></div>
+      <div class="sec"><i class="tick">✓</i><div><b>Revoke any time</b><span>You can withdraw access yourself from your Google account settings, in seconds.</span></div></div>
+      <div class="sec"><i class="tick">✓</i><div><b>Kept separate</b><span>Your content, brand and accounts are kept completely separate from every other customer's.</span></div></div>
+      <div class="sec"><i class="tick">✓</i><div><b>Published on schedule</b><span>Every Short is prepared ahead of time and goes public at its set time, so there's always a window to review.</span></div></div>
+      <div class="sec"><i class="tick">✓</i><div><b>Original content only</b><span>iDiscover publishes content you own or have the right to publish. It doesn't scrape, repost or redistribute anyone else's work.</span></div></div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ENGAGEMENT -->
+<section id="engage">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Features</div>
-      <h2>Everything the workflow needs</h2>
-    </div>
-    <div class="grid-4">
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8" stroke-linecap="round"/></svg></div><h3>AI Rendering</h3><p>Automated video generation from source content.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4" stroke-linecap="round"/></svg></div><h3>Scheduling</h3><p>Plan publication times across every account.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg></div><h3>Content Library</h3><p>Organise scripts and assets in one place.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10h10M7 14h6" stroke-linecap="round"/></svg></div><h3>Publishing Queue</h3><p>See what's scheduled, live, and in draft.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round"/></svg></div><h3>Account Management</h3><p>Connect and manage multiple platform accounts.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 19V9M11 19V4M18 19v-6" stroke-linecap="round"/></svg></div><h3>Analytics</h3><p style="color:var(--muted-dim)">Coming soon</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 4v16M4 12h16" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Platform Connectors</h3><p>Official APIs for each supported platform.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Duplicate Protection</h3><p>Automatic checks prevent repeat publishing.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Supported Platforms</div>
-      <h2>Where your content goes live</h2>
-    </div>
-    <div class="platform-row">
-      <div class="platform-chip live"><span class="dot"></span>TikTok</div>
-      <div class="platform-chip live"><span class="dot"></span>YouTube</div>
-      <div class="platform-chip soon"><span class="dot"></span>Instagram — coming soon</div>
-      <div class="platform-chip soon"><span class="dot"></span>LinkedIn — coming soon</div>
-      <div class="platform-chip soon"><span class="dot"></span>Pinterest — coming soon</div>
-    </div>
-    <p style="text-align:center; color:var(--muted-dim); font-size:12.5px; margin-top:24px;">Additional publishing platforms are planned for future releases.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="callout">
-      <p>"SIGNAL333 Publisher is designed for the production and publication of original creator-owned content."</p>
-      <p>The platform does not facilitate reposting, scraping, or redistribution of third-party content.</p>
-    </div>
-  </div>
-</section>
-
-<section id="pricing">
-  <div class="wrap">
-    <div class="section-head">
+    <div class="section-head center">
       <div class="eyebrow">Pricing</div>
-      <h2>Simple plans, coming soon</h2>
-      <p>SIGNAL333 Publisher is currently in private beta. Pricing below reflects our planned structure.</p>
+      <h2>Founding 50: assisted setup included.</h2>
+      <p>One clear offer for our first 50 customers. You pay £89 a month, we help you get it running, and then it operates every day.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="tier">Starter</div>
-        <h3>—</h3>
-        <div class="status">Coming Soon</div>
-        <ul><li>1 connected platform</li><li>Manual scheduling</li><li>Basic content library</li></ul>
+    <div class="offer">
+      <div>
+        <span class="tag">Founding 50 · limited places</span>
+        <h3>iDiscover Founding 50</h3>
+        <p>One IP. One channel. One daily discovery Short. Assisted setup included.</p>
+        <ul class="incl"><li>1 IP</li><li>1 YouTube channel</li><li>1 discovery environment</li><li>1 branded visual identity</li><li>1 Short per day</li><li>Content pool supplied by you</li><li>Automated production</li><li>Automated scheduling and publishing</li><li>Initial YouTube connection</li><li>Testing and activation</li><li>Email-assisted setup</li></ul>
       </div>
-      <div class="price-card featured">
-        <div class="tier">Professional</div>
-        <h3>—</h3>
-        <div class="status">Coming Soon</div>
-        <ul><li>Multiple platforms</li><li>Automated scheduling</li><li>Duplicate protection</li><li>Priority support</li></ul>
+      <div class="price">
+        <b>£89</b><span>per month · 3-month minimum</span>
+        <a class="btn btn-primary" href="mailto:pay1709@sky.com?subject=iDiscover%20Founding%2050%20place">Claim a founding place</a>
       </div>
-      <div class="price-card">
-        <div class="tier">Business</div>
-        <h3>—</h3>
-        <div class="status">Coming Soon</div>
-        <ul><li>Team accounts</li><li>Advanced analytics</li><li>Multiple content series</li></ul>
+    </div>
+    <p class="qualify">Founding 50 includes assisted setup for one IP and one YouTube channel. Additional IPs, channels, custom work or ongoing content services are not included.</p>
+    <div class="scope">
+      <div class="scope-col">
+        <b>You supply</b>
+        <span>Your content pool (your expertise, product information and destination) and access to your YouTube channel.</span>
       </div>
-      <div class="price-card">
-        <div class="tier">Enterprise</div>
-        <h3>—</h3>
-        <div class="status">Coming Soon</div>
-        <ul><li>Custom integrations</li><li>Dedicated support</li><li>Volume publishing</li></ul>
+      <div class="scope-col">
+        <b>One-time assistance</b>
+        <span>Setup help is a one-time, email-based service. Once you're live, iDiscover runs automatically. It's an automated service, not ongoing hands-on management.</span>
       </div>
+      <div class="scope-col">
+        <b>When the 50 are allocated</b>
+        <span>Founding 50 closes. Standard plans follow, shaped by what our founding customers need.</span>
+      </div>
+    </div>
+    <p class="units-note">Founding places are limited to the first 50 deployments. <a href="mailto:pay1709@sky.com?subject=iDiscover%20Founding%2050%20place" style="color:var(--accent);font-weight:600">Tell us about your product →</a></p>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">Who it's for</div>
+      <h2>For anyone whose knowledge is the product.</h2>
+    </div>
+    <div class="who">
+      <div class="who-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg></div><b>Experts and educators</b><span>Turn a method or course into a daily stream of ideas that leads people to it.</span></div>
+      <div class="who-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></div><b>Digital product makers</b><span>Templates, tools and apps, each product with its own identity.</span></div>
+      <div class="who-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><path d="M4 17h14"/></svg></div><b>Authors and publishers</b><span>Keep a back catalogue discoverable, book by book, every day.</span></div>
+      <div class="who-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div><b>Businesses and consultancies</b><span>Put proprietary expertise in front of the people who need it, consistently.</span></div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
 <section id="faq">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head center">
       <div class="eyebrow">FAQ</div>
       <h2>Common questions</h2>
     </div>
     <div class="faq">
-      <div class="faq-item"><h3>Who is SIGNAL333 Publisher for?</h3><p>Educators, businesses, creators and publishers who want to publish original short-form content consistently, without doing it manually every day.</p></div>
-      <div class="faq-item"><h3>How does platform authentication work?</h3><p>You connect your TikTok or YouTube account using the platform's own official OAuth login. SIGNAL333 never sees or stores your password.</p></div>
-      <div class="faq-item"><h3>Who owns my content?</h3><p>You do. SIGNAL333 Publisher does not claim ownership of any content published through the platform.</p></div>
-      <div class="faq-item"><h3>Can I publish to multiple platforms?</h3><p>Yes. Supported platforms such as TikTok and YouTube are available today, with Instagram, LinkedIn and Pinterest planned. Additional publishing platforms will be added over time.</p></div>
-      <div class="faq-item"><h3>Can teams collaborate?</h3><p>Team accounts are planned as part of the Business tier.</p></div>
+      <details><summary>What does it cost?</summary><p>Our Founding 50 offer is £89 a month with a three-month minimum, for one IP, one channel and one daily Short, with assisted setup included. It's limited to our first 50 customers.</p></details>
+      <details><summary>Do I need to film, edit or upload anything?</summary><p>No. Once your content and brand are approved, iDiscover produces and publishes each Short itself. Your daily involvement is optional.</p></details>
+      <details><summary>Do I have to give you access to my Google account?</summary><p>No. You keep ownership of your Google account and YouTube channel. During assisted setup, you'll securely authorise iDiscover to publish to your chosen channel. We never need your Google password.</p></details>
+      <details><summary>Whose YouTube channel do the Shorts go on?</summary><p>Yours. We recommend you own the channel in your own Google account. iDiscover connects to it through Google's official authorisation, and you can revoke that access at any time.</p></details>
+      <details><summary>Who writes the scripts?</summary><p>You do. Founding 50 customers supply their own content pool, and we check it's ready during assisted setup. The content is your intellectual property, and you approve it before anything is published.</p></details>
+      <details><summary>How often does it publish?</summary><p>One Short per channel per day, going live at the local time you choose.</p></details>
+      <details><summary>What happens if something goes wrong?</summary><p>Built-in safeguards mean problems are caught and flagged rather than published, so nothing goes out wrongly while it's put right.</p></details>
+      <details><summary>Can I promote more than one product?</summary><p>iDiscover can carry several products on one channel, each with its own identity. The Founding 50 offer covers one IP with one branded visual identity; more products and IPs will come with later plans.</p></details>
+      <details><summary>Which platforms does it publish to?</summary><p>YouTube Shorts today, with further destinations planned.</p></details>
+      <details><summary>Is my content kept separate from other customers'?</summary><p>Completely. Each customer's deployment is kept entirely separate from every other customer's.</p></details>
     </div>
   </div>
 </section>
 
-<section class="tech-details">
+<!-- CTA -->
+<section class="cta" style="padding-top:96px">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Technical Details</div>
-      <h2 style="font-size:24px;">For the curious</h2>
-    </div>
-    <div class="tech-table">
-      <div class="row"><span>Platform APIs</span><span>TikTok Content Posting API v2, YouTube Data API</span></div>
-      <div class="row"><span>Authentication</span><span>OAuth 2.0 with PKCE</span></div>
-      <div class="row"><span>Video Format</span><span>MP4 — 1080×1920 — H.264</span></div>
-      <div class="row"><span>Duplicate Prevention</span><span>30-day rolling history</span></div>
-      <div class="row"><span>Operator</span><span>SIGNAL333 Ventures</span></div>
+    <div class="cta-box">
+      <div>
+        <h2>Make your expertise discoverable, every single day.</h2>
+        <p>Founding places are limited to our first 50 customers: £89 a month, assisted setup included.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="mailto:pay1709@sky.com?subject=iDiscover%20Founding%2050%20place">Claim a founding place</a>
+        <a class="btn btn-ghost" href="#how">Watch the example Short</a>
+      </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
-  <div class="wrap">
-    <div class="footer-brand">© 2026 SIGNAL333 Ventures. All rights reserved.<br>SIGNAL333 Publisher is a commercial publishing platform developed by SIGNAL333 Ventures.</div>
-    <div class="footer-links">
-      <a href="https://oi-ecosystem.github.io/signal333-publisher/privacy.html">Privacy</a>
-      <a href="https://oi-ecosystem.github.io/signal333-publisher/terms.html">Terms</a>
+  <div class="wrap foot">
+    <div>© 2026 Signal333 Ventures. iDiscover is discovery infrastructure developed by Signal333 Ventures.</div>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
       <a href="mailto:pay1709@sky.com">Contact</a>
-      <a href="https://www.tiktok.com/@signal333hq">@signal333hq</a>
+      <a href="https://www.alpha333.org/">alpha333.org</a>
     </div>
   </div>
 </footer>
