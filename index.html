@@ -119,6 +119,19 @@
   .phone-cap{margin-top:16px;font-size:13.5px;color:var(--muted);text-align:center;line-height:1.5}
   .phone-cap b{color:var(--ink);font-weight:600}
 
+  /* sound toggle (added) */
+  .phone-frame{position:relative}
+  .sound-btn{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(14,23,38,.72);color:#fff;font:600 14px/1 'Inter',system-ui,sans-serif;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);white-space:nowrap;transition:background .15s}
+  .sound-btn:hover{background:rgba(14,23,38,.9)}
+  .sound-btn:focus-visible{outline:3px solid var(--accent-line);outline-offset:3px}
+  .sound-btn svg{width:18px;height:18px;flex-shrink:0}
+  .sound-btn .on{display:none}
+  .sound-btn[aria-pressed="true"] .on{display:inline}
+  .sound-btn[aria-pressed="true"] .off{display:none}
+  .sound-btn.pulse{animation:soundpulse 2.4s ease-in-out 3}
+  @keyframes soundpulse{0%,100%{box-shadow:0 0 0 0 rgba(31,94,255,0)}50%{box-shadow:0 0 0 8px rgba(31,94,255,.35)}}
+  @media (prefers-reduced-motion:reduce){.sound-btn.pulse{animation:none}}
+
   /* anatomy */
   .anatomy{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .anat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
@@ -221,6 +234,20 @@
   .unit.pilot b{color:var(--accent-ink)}
   .units-note{text-align:center;margin-top:26px;font-size:14.5px;color:var(--muted)}
 
+  /* standard plans (added) */
+  .plans-head{text-align:center;margin:56px 0 22px}
+  .plans-head .eyebrow{color:var(--muted)}
+  .plans-head h3{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin:8px 0 6px}
+  .plans-head p{font-size:15px;color:var(--muted)}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .plan .tag{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .plan b{display:block;font-family:'Fraunces',serif;font-size:30px;font-weight:600;line-height:1.1;margin:8px 0 2px}
+  .plan small{display:block;font-size:13px;color:var(--muted);margin-bottom:14px}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .plan li{display:flex;gap:9px;font-size:14px;color:var(--ink2)}
+  .plan li::before{content:'✓';color:var(--accent);font-weight:700}
+
   /* who */
   .who{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .who-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
@@ -262,6 +289,7 @@
     .portfolio{grid-template-columns:repeat(2,1fr)}
     .journey{grid-template-columns:repeat(2,1fr)}
     .units,.who{grid-template-columns:repeat(2,1fr)}
+    .plans{grid-template-columns:1fr}
     .anatomy,.grid-3{grid-template-columns:1fr 1fr}
     .card-example img{max-width:260px}
     .tips{grid-template-columns:1fr 1fr}
@@ -314,7 +342,7 @@
     <div>
       <div class="eyebrow">Discovery infrastructure for expertise</div>
       <h1>Your expertise,<br><em>discovered daily.</em></h1>
-      <p class="lead">iDiscover turns your knowledge, products and brand into a continuous stream of short-form videos. Each one is produced and published to <strong>your own YouTube channel</strong> every day, then sends viewers to <strong>your</strong> destination. No filming, no editing, and no daily uploads.</p>
+      <p class="lead">iDiscover turns your knowledge, products and brand into a continuous stream of short-form videos, with real footage, your message, music and your brand. A new one is published to <strong>your own YouTube channel</strong> every day, sending viewers to <strong>your</strong> destination. No filming, no editing, and no daily uploads.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="mailto:pay1709@sky.com?subject=iDiscover%20Founding%2050%20place">Claim a founding place</a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
@@ -330,7 +358,7 @@
       <div class="pipeline-head"><span class="eyebrow">The discovery pipeline</span><span class="live-pill">In production</span></div>
       <div class="stage"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5h11l5 5v9H4z"/><path d="M8 11h8M8 15h5"/></svg></div><div><b>Your knowledge</b><small>Insights, products, methods, expertise</small></div></div>
       <div class="arrow">↓</div>
-      <div class="stage"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div><b>Structured content + your brand</b><small>Your expertise, shaped for discovery</small></div></div>
+      <div class="stage"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div><b>Scripts, footage, music + your brand</b><small>Written and produced with you, approved by you</small></div></div>
       <div class="arrow">↓</div>
       <div class="stage core"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></div><div><b>iDiscover</b><small>Turns it into daily discovery content</small></div></div>
       <div class="arrow">↓</div>
@@ -345,7 +373,7 @@
 <div class="proof">
   <div class="wrap proof-grid">
     <div class="proof-item"><b>5</b><span>independent channels running on one engine in our own portfolio</span></div>
-    <div class="proof-item"><b>1,680+</b><span>pieces of discovery content across our own brands</span></div>
+    <div class="proof-item"><b>1,750+</b><span>Shorts written and ready across our own brands</span></div>
     <div class="proof-item"><b>Daily</b><span>a new Short on every channel, every day</span></div>
     <div class="proof-item"><b>0</b><span>manual steps per day once a deployment is live</span></div>
   </div>
@@ -373,9 +401,9 @@
       <div class="contrast-card after">
         <h3>With iDiscover</h3>
         <ul>
-          <li>Your knowledge is structured once into a discovery system</li>
+          <li>Your knowledge is written once into a library of scripts, with you</li>
           <li>A new Short goes out every day, automatically</li>
-          <li>Every Short carries your approved message and your brand</li>
+          <li>Every Short carries your approved message, real footage, music and your brand</li>
           <li>Every publish is recorded, so you always know what went out</li>
           <li>New products or channels are added, not rebuilt</li>
         </ul>
@@ -391,20 +419,25 @@
       <div class="section-head">
         <div class="eyebrow">How it works</div>
         <h2>From your knowledge to daily discovery, in four steps.</h2>
-        <p>You bring the knowledge and the destination. iDiscover turns it into a discovery system that keeps working, every day.</p>
+        <p>You bring the knowledge and the destination. We do the rest, and iDiscover keeps it working, every day.</p>
       </div>
       <div class="steps">
-        <div class="step"><div class="step-num">01</div><div><h3>Capture</h3><p>Your existing expertise and intellectual property.</p></div></div>
-        <div class="step"><div class="step-num">02</div><div><h3>Structure</h3><p>Turn it into a repeatable discovery system.</p></div></div>
-        <div class="step"><div class="step-num">03</div><div><h3>Publish</h3><p>Create and distribute daily discovery content.</p></div></div>
-        <div class="step"><div class="step-num">04</div><div><h3>Compound</h3><p>Build an expanding library around your IP.</p></div></div>
+        <div class="step"><div class="step-num">01</div><div><h3>Capture</h3><p>Tell us about your expertise, your products and where you want people to go. A conversation and your existing material are enough.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div><h3>Structure</h3><p>We turn it into a library of short, engaging scripts in your voice. You approve every one before anything is published.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div><h3>Publish</h3><p>Each Short pairs your message with real footage and music chosen for your audience, ends on your brand, and goes out on your channel every day.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div><h3>Compound</h3><p>Every day adds to a growing library of Shorts that keeps sending people your way.</p></div></div>
       </div>
     </div>
     <div class="phone">
       <div class="phone-frame">
-        <video src="idiscover-demo.mp4" poster="idiscover-demo-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Example iDiscover Short for 1LINE Gift"></video>
+        <video id="demo" src="idiscover-gift-clip.mp4" poster="idiscover-gift-clip-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Example iDiscover Short for 1LINE Gift, with music"></video>
+        <button type="button" class="sound-btn pulse" id="soundBtn" aria-pressed="false" aria-controls="demo" aria-label="Turn sound on">
+          <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg>
+          <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          <span class="off">Tap for sound</span><span class="on">Sound on</span>
+        </button>
       </div>
-      <p class="phone-cap"><b>A real iDiscover Short</b><br>1LINE Gift, produced and published automatically.</p>
+      <p class="phone-cap"><b>A real iDiscover Short</b><br>1LINE Gift: real footage, music and a branded finish, produced and published automatically.</p>
     </div>
   </div>
 </section>
@@ -421,12 +454,12 @@
       <div class="anat">
         <span class="tag">The idea</span>
         <h3>One clear thought from your expertise</h3>
-        <p>Short, direct and in your voice: a single idea from your knowledge that gives the viewer a reason to stop.</p>
+        <p>Short, direct and in your voice: a single idea from your knowledge, set over real footage and music, that gives the viewer a reason to stop.</p>
       </div>
       <div class="anat">
         <span class="tag">The brand</span>
         <h3>Your product, front and centre</h3>
-        <p>Every Short closes on your brand's own visual identity, so viewers remember who it came from and what you offer.</p>
+        <p>Every Short closes on your own branded end card, so viewers remember who it came from and what you offer.</p>
       </div>
       <div class="anat">
         <span class="tag">The next step</span>
@@ -438,7 +471,7 @@
     <div class="section-head center" style="margin-top:80px;margin-bottom:36px">
       <div class="eyebrow">Every brand, its own identity</div>
       <h2>Your brand, not a template.</h2>
-      <p>Each product gets a visual identity built for it. Here are three from our own portfolio.</p>
+      <p>Each product gets its own branded end card, built for it. Here are three from our own portfolio.</p>
     </div>
     <div class="gallery">
       <figure><img src="card-thinking-dojo.jpg" alt="The Thinking Dojo brand card: a parent with two children and www.alpha333.org" loading="lazy"><figcaption><b>The Thinking Dojo</b>Structured thinking for children 7–13</figcaption></figure>
@@ -460,16 +493,17 @@
     <div class="section-head center">
       <div class="eyebrow">What you get</div>
       <h2>A discovery engine, not a posting tool.</h2>
-      <p>The same engine runs every deployment. Your content, artwork and channels stay entirely your own.</p>
+      <p>We write your scripts with you, and the same engine produces and publishes every deployment. Your content, artwork and channels stay entirely your own.</p>
     </div>
     <div class="grid-3">
       <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg></div><h3>Your own channel</h3><p>One product line, one channel, one audience. Your Shorts build your channel and your subscriber base, not ours.</p></div>
-      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div><h3>Always fresh</h3><p>Your content library is worked through in full before anything comes round again, so your audience keeps seeing something new.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div><h3>Always fresh</h3><p>Fresh messages, fresh footage and fresh music, so your audience keeps seeing something new day after day.</p></div>
       <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><h3>Multi-product, one channel</h3><p>Promote several products from one channel, each with its own identity, and each always shown with the right message.</p></div>
       <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Runs itself</h3><p>Built to run continuously without daily input. Once you're live, publishing simply keeps happening.</p></div>
-      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Built-in safeguards</h3><p>Designed so your content only ever reaches your channel. If something isn't right, it's caught and flagged rather than published.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Built-in safeguards</h3><p>Every Short is checked before it's published and only ever reaches your channel. If something isn't right, it's held back and fixed.</p></div>
       <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l2 2 3-4"/></svg></div><h3>Full visibility</h3><p>Every publish is recorded, and a daily summary shows exactly what went out and whether anything needs attention.</p></div>
       <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/></svg></div><h3>Resilient by design</h3><p>An issue in one place never stops the rest. Your other channels keep publishing while it's dealt with.</p></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18V6l11-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></div><h3>Footage and music included</h3><p>Licensed footage and soundtracks chosen to suit your subject. Nothing to film, source or license yourself.</p></div>
       <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Your schedule, your timezone</h3><p>Each channel goes live at the local time your audience is watching.</p></div>
       <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><h3>Grows without rebuilding</h3><p>More content, a new product, another channel: each is simply added to your deployment. Nothing is rebuilt.</p></div>
     </div>
@@ -504,9 +538,9 @@
       <p>iDiscover is the infrastructure layer. Everything that makes the output yours stays yours.</p>
     </div>
     <div class="layers">
-      <div class="layer"><b>Content layer</b><span>Your intellectual property: expertise, products, messages</span></div>
-      <div class="layer"><b>Presentation layer</b><span>Your brand: a visual identity for each product</span></div>
-      <div class="layer core"><b>Discovery layer · iDiscover</b><span>Structuring, production, distribution and monitoring</span></div>
+      <div class="layer"><b>Content layer</b><span>Your intellectual property: expertise, products, messages, written into scripts with you</span></div>
+      <div class="layer"><b>Presentation layer</b><span>Your brand: footage, music and a branded end card for each product</span></div>
+      <div class="layer core"><b>Discovery layer · iDiscover</b><span>Production, publishing and monitoring</span></div>
       <div class="layer"><b>Distribution layer</b><span>Your YouTube channels, with more destinations to come</span></div>
       <div class="layer"><b>Commercial layer</b><span>Your website, store, booking page, books</span></div>
     </div>
@@ -523,7 +557,7 @@
     </div>
     <div class="journey">
       <div class="j"><b>Discover</b><span>Your products, audience, goals and destination</span></div>
-      <div class="j"><b>Design</b><span>Your content library and visual identity, approved by you</span></div>
+      <div class="j"><b>Design</b><span>Your scripts, footage, music and branding, approved by you</span></div>
       <div class="j"><b>Build</b><span>Your own dedicated deployment, connected to your channel</span></div>
       <div class="j gate"><b>Prove</b><span>Tested and verified end to end before anything goes live</span></div>
       <div class="j"><b>Run &amp; grow</b><span>Live every day, monitored, and expanded as you grow</span></div>
@@ -563,7 +597,7 @@
         <span class="tag">Founding 50 · limited places</span>
         <h3>iDiscover Founding 50</h3>
         <p>One IP. One channel. One daily discovery Short. Assisted setup included.</p>
-        <ul class="incl"><li>1 IP</li><li>1 YouTube channel</li><li>1 discovery environment</li><li>1 branded visual identity</li><li>1 Short per day</li><li>Content pool supplied by you</li><li>Automated production</li><li>Automated scheduling and publishing</li><li>Initial YouTube connection</li><li>Testing and activation</li><li>Email-assisted setup</li></ul>
+        <ul class="incl"><li>1 IP</li><li>1 YouTube channel</li><li>1 Short per day</li><li>Scripts written with you</li><li>Licensed footage and music</li><li>Your branded end card</li><li>Automated production</li><li>Automated scheduling and publishing</li><li>Initial YouTube connection</li><li>Testing and activation</li><li>Assisted setup</li></ul>
       </div>
       <div class="price">
         <b>£89</b><span>per month · 3-month minimum</span>
@@ -574,16 +608,26 @@
     <div class="scope">
       <div class="scope-col">
         <b>You supply</b>
-        <span>Your content pool (your expertise, product information and destination) and access to your YouTube channel.</span>
+        <span>Your expertise (a conversation and any existing material), your destination, and permission to publish to your YouTube channel.</span>
       </div>
       <div class="scope-col">
         <b>One-time assistance</b>
-        <span>Setup help is a one-time, email-based service. Once you're live, iDiscover runs automatically. It's an automated service, not ongoing hands-on management.</span>
+        <span>We write your scripts, choose your footage and music, and test everything with you. Once you're live, iDiscover runs automatically. It's an automated service, not ongoing hands-on management.</span>
       </div>
       <div class="scope-col">
         <b>When the 50 are allocated</b>
         <span>Founding 50 closes. Standard plans follow, shaped by what our founding customers need.</span>
       </div>
+    </div>
+    <div class="plans-head">
+      <div class="eyebrow">After Founding 50</div>
+      <h3>Standard plans</h3>
+      <p>A one-off setup fee from £295, then a simple monthly plan.</p>
+    </div>
+    <div class="plans">
+      <div class="plan"><span class="tag">Solo</span><b>£99</b><small>per month</small><ul><li>1 channel</li><li>1 product</li><li>1 Short per day</li></ul></div>
+      <div class="plan"><span class="tag">Business</span><b>£199</b><small>per month</small><ul><li>1 channel</li><li>Up to 5 products</li><li>Quarterly script refresh</li></ul></div>
+      <div class="plan"><span class="tag">Studio</span><b>£399</b><small>per month</small><ul><li>Up to 3 channels</li><li>Multiple products per channel</li><li>Priority support</li></ul></div>
     </div>
     <p class="units-note">Founding places are limited to the first 50 deployments. <a href="mailto:pay1709@sky.com?subject=iDiscover%20Founding%2050%20place" style="color:var(--accent);font-weight:600">Tell us about your product →</a></p>
   </div>
@@ -617,10 +661,12 @@
       <details><summary>Do I need to film, edit or upload anything?</summary><p>No. Once your content and brand are approved, iDiscover produces and publishes each Short itself. Your daily involvement is optional.</p></details>
       <details><summary>Do I have to give you access to my Google account?</summary><p>No. You keep ownership of your Google account and YouTube channel. During assisted setup, you'll securely authorise iDiscover to publish to your chosen channel. We never need your Google password.</p></details>
       <details><summary>Whose YouTube channel do the Shorts go on?</summary><p>Yours. We recommend you own the channel in your own Google account. iDiscover connects to it through Google's official authorisation, and you can revoke that access at any time.</p></details>
-      <details><summary>Who writes the scripts?</summary><p>You do. Founding 50 customers supply their own content pool, and we check it's ready during assisted setup. The content is your intellectual property, and you approve it before anything is published.</p></details>
+      <details><summary>Who writes the scripts?</summary><p>We do, with you. We turn your expertise into a library of short scripts in your voice, and you approve every one before anything is published. The content remains your intellectual property.</p></details>
+      <details><summary>Where do the footage and music come from?</summary><p>Professionally licensed stock footage and music, cleared for commercial use and chosen to suit your subject and audience. You see the look and hear the sound before you go live.</p></details>
+      <details><summary>Do the Shorts have sound?</summary><p>Yes. Every Short has a soundtrack matched to its mood. Tap the sound button on the example Short above to hear one.</p></details>
       <details><summary>How often does it publish?</summary><p>One Short per channel per day, going live at the local time you choose.</p></details>
-      <details><summary>What happens if something goes wrong?</summary><p>Built-in safeguards mean problems are caught and flagged rather than published, so nothing goes out wrongly while it's put right.</p></details>
-      <details><summary>Can I promote more than one product?</summary><p>iDiscover can carry several products on one channel, each with its own identity. The Founding 50 offer covers one IP with one branded visual identity; more products and IPs will come with later plans.</p></details>
+      <details><summary>What happens if something goes wrong?</summary><p>Every Short is checked before it's published. If something isn't right, it's held back rather than published, so nothing goes out wrongly while it's put right.</p></details>
+      <details><summary>Can I promote more than one product?</summary><p>iDiscover can carry several products on one channel, each with its own identity. The Founding 50 offer covers one IP with one branded end card; the Business and Studio plans cover more products and channels.</p></details>
       <details><summary>Which platforms does it publish to?</summary><p>YouTube Shorts today, with further destinations planned.</p></details>
       <details><summary>Is my content kept separate from other customers'?</summary><p>Completely. Each customer's deployment is kept entirely separate from every other customer's.</p></details>
     </div>
@@ -657,8 +703,24 @@
   </div>
 </footer>
 
-<!-- GoatCounter Analytics -->
-<script data-goatcounter="https://signal333.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var v = document.getElementById('demo'), b = document.getElementById('soundBtn');
+  if(!v || !b) return;
+  function sync(){
+    var on = !v.muted;
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    b.setAttribute('aria-label', on ? 'Turn sound off' : 'Turn sound on');
+  }
+  b.addEventListener('click', function(){
+    b.classList.remove('pulse');
+    v.muted = !v.muted;
+    if(!v.muted){ v.volume = 0.8; var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+    sync();
+  });
+  v.addEventListener('volumechange', sync);
+  sync();
+})();
+</script>
 </body>
 </html>
